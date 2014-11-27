@@ -33,9 +33,6 @@ mkdir -p $CACHE_DIR/www
 mv * $CACHE_DIR/www
 mv $CACHE_DIR/www .
 
-# for perl cpanm
-cp www/cpanfile .
-
 # keep Procfile
 if [ -f www/Procfile ]; then
   mv www/Procfile .
