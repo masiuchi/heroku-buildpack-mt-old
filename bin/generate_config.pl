@@ -6,7 +6,7 @@ use File::Spec;
 
 my ( $database_url )  = $ARGV[0];
 
-my ( $user, $pass, $host, $db, $port ) = $database_url =~ m{^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$};
+my ( $user, $pass, $host, $port, $db ) = $database_url =~ m{^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$};
 
 print <<"__EOF__";
 CGIPath /
