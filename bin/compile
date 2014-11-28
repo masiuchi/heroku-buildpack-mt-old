@@ -62,7 +62,7 @@ ln -s /app/php/bin/php bin/php
 
 cat >>boot.sh <<EOF
 echo "Generating mt-config.cgi"
-perl /app/www/generate_config.pl $DATABASE_URL >> /app/www/mt-config.cgi
+perl /app/www/generate_config.pl \$DATABASE_URL >> /app/www/mt-config.cgi
 
 for var in \`env|cut -f1 -d=\`; do
   echo "PassEnv \$var" >> /app/apache/conf/httpd.conf;
