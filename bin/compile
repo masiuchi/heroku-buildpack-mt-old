@@ -59,11 +59,8 @@ mkdir -p bin
 ln -s /app/php/bin/php bin/php
 
 cat >>boot.sh <<EOF
-if ! [ -e /app/www/mt-config.cgi ]; then
-  echo "-----> Generating mt-config.cgi"
-  echo $DATABASE_URL
-  perl $LP_DIR/bin/generate_config.pl $DATABASE_URL | cat >> mt-config.cgi
-fi
+echo "Generating mt-config.cgi"
+perl ./generate_config.pl $DATABASE_URL | cat >> ./mt-config.cgi
 
 for var in \`env|cut -f1 -d=\`; do
   echo "PassEnv \$var" >> /app/apache/conf/httpd.conf;
@@ -105,6 +102,8 @@ echo "-----> Installing dependencies"
 curl --silent -O https://raw.githubusercontent.com/movabletype/movabletype/develop/t/cpanfile
 cpanm --installdeps . 2>&1 | indent
 cpanm DBD::Pg . 2>&1 | indent
+
+cp -a $LD_DIR/generate_config.pl /app/www/
 
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local
