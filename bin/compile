@@ -103,7 +103,7 @@ curl --silent -O https://raw.githubusercontent.com/movabletype/movabletype/devel
 cpanm --installdeps . 2>&1 | indent
 cpanm DBD::Pg . 2>&1 | indent
 
-cp -a $LP_DIR/generate_config.pl /app/www/
+cp -a $LP_DIR/bin/generate_config.pl /app/www/
 
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local
