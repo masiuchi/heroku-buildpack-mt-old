@@ -13,7 +13,7 @@ CGIPath /
 StaticWebPath /mt-static
 StaticFilePath /app/www/mt-static
 
-ObjectDriver DBI:postgres
+ObjectDriver DBI::postgres
 DBHost $host
 DBPort $port
 Database $db
