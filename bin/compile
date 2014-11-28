@@ -100,6 +100,11 @@ curl --silent -O https://raw.githubusercontent.com/movabletype/movabletype/devel
 cpanm --installdeps . 2>&1 | indent
 cpanm DBD::Pg . 2>&1 | indent
 
+if ! [ -e /app/www/mt-config.cgi ]; then
+  echo "-----> Generating mt-config.cgi"
+  perl ./generate_config.pl $DATABASE_URL | cat >> mt-config.cgi
+fi
+
 if [ -d $BUILD_DIR/local ]; then
   rm -rf $CACHE_DIR/local
   mkdir -p $CACHE_DIR
