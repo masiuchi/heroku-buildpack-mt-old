@@ -4,15 +4,14 @@ use warnings;
 
 use File::Spec;
 
-my ( $database_url, $build_dir )  = @ARGV[1,2];
+my ( $database_url )  = $ARGV[0];
 
 my ( $user, $pass, $host, $db, $port ) = $database_url =~ m{^postgres://([^:@/]+):([^:@/]+)@([^:@/]+):([^:@/]+)/([^:@/]+)$};
-my $static_file_path = File::Spec->catdir( $build_dir, 'mt-static' );
 
 print <<"__EOF__";
 CGIPath /
 StaticWebPath /mt-static
-StaticFilePath $static_file_path
+StaticFilePath /app/www/mt-static
 
 ObjectDriver DBI:postgres
 DBHost $host
