@@ -23,7 +23,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
-cp -a $LP_DIR/bin/generate_config.pl ./
+cp $LP_DIR/bin/generate_config.pl ./
 
 # include .files when moving things around
 shopt -s dotglob
