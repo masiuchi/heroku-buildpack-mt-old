@@ -102,7 +102,7 @@ cpanm DBD::Pg . 2>&1 | indent
 
 if ! [ -e /app/www/mt-config.cgi ]; then
   echo "-----> Generating mt-config.cgi"
-  perl ./generate_config.pl $DATABASE_URL | cat >> mt-config.cgi
+  perl $LP_DIR/bin/generate_config.pl $DATABASE_URL | cat >> mt-config.cgi
 fi
 
 if [ -d $BUILD_DIR/local ]; then
