@@ -20,7 +20,7 @@ Database $db
 DBUser $user
 DBPassword $pass
 
-DefaultLanguage en_US
+DefaultLanguage ja
 
 ImageDriver Imager
 __EOF__
