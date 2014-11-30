@@ -21,4 +21,6 @@ DBUser $user
 DBPassword $pass
 
 DefaultLanguage en_US
+
+ImageDriver Imager
 __EOF__
